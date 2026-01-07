@@ -156,7 +156,7 @@ function generateEmailHTML(data) {
                                 <tr>
                                     <td style="text-align: center;">
                                         <!-- Konst Logo Image -->
-                                        <img src="${themeStyles.logoUrl}" alt="Konst" style="height: 80px; width: auto; display: inline-block;">
+                                        <img src="${themeStyles.logoUrl}" alt="Konst" style="height: 96px; width: auto; display: inline-block;">
                                     </td>
                                 </tr>
                             </table>
@@ -361,7 +361,7 @@ function generatePreviewHTML(data) {
     <!-- Header Banner -->
     <div style="background: ${themeStyles.headerBg}; padding: 10px 30px; text-align: center;">
         <!-- Konst Logo Image -->
-        <img src="${themeStyles.logoUrl}" alt="Konst" style="height: 80px; width: auto; display: inline-block;">
+        <img src="${themeStyles.logoUrl}" alt="Konst" style="height: 96px; width: auto; display: inline-block;">
     </div>
 
     <!-- Main Content -->
