@@ -43,19 +43,16 @@
     };
 
     // ===================================
-    // Default Values
+    // Default Values（從 EditorConfig 取得）
     // ===================================
-    const DEFAULTS = {
+    const DEFAULTS = window.EditorConfig?.DEFAULTS || {
         recipientName: '',
         headline: 'Next-Gen Globally Distributed AI Cloud',
-        bodyContent: `• Scale your AI workloads globally with ease
-• Access high-end GPUs (H100, A100) on demand
-• Deploy and scale with unparalleled simplicity
-• Pay only for what you use - no commitments`,
+        bodyContent: '• Scale your AI workloads globally with ease',
         ctaText: 'Get Started →',
         ctaUrl: 'https://glows.ai',
         footerInfo: 'Konst Tech Inc., Taiwan',
-        psText: 'Have questions? Reply directly to this email and we\'ll help you get started.',
+        psText: 'Have questions? Reply directly to this email.',
         signature: '- The Konst Team',
         theme: 'dark'
     };

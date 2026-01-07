@@ -158,6 +158,29 @@ body {
     font-size: 1rem;
 }
 
+/* Focus 樣式（可訪問性） */
+.btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.tab-btn:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: -2px;
+}
+
+.theme-option input[type="radio"]:focus-visible + .theme-preview {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--border-focus);
+}
+
 /* Main Content - Split View */
 .main-content {
     flex: 1;
@@ -289,20 +312,21 @@ body {
 }
 
 .theme-name {
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.3);
+    font-family: Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .theme-dark .theme-name {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .theme-light .theme-name {
     color: #1a1a2e;
-    background: rgba(0, 0, 0, 0.1);
+    text-shadow: none;
 }
 
 /* Form Hint */
@@ -333,7 +357,7 @@ body {
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: var(--spacing-sm);
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.5px;
 }
 

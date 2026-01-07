@@ -20,7 +20,7 @@
                 <h1>EDM Editor</h1>
             </div>
             <div class="header-actions">
-                <button id="saveBtn" class="btn btn-secondary">
+                <button type="button" id="saveBtn" class="btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
@@ -29,7 +29,7 @@
                     </svg>
                     Save
                 </button>
-                <button id="clearBtn" class="btn btn-ghost">
+                <button type="button" id="clearBtn" class="btn btn-ghost">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 6h18" />
@@ -47,7 +47,7 @@
             <section class="editor-panel">
                 <!-- Tab Navigation -->
                 <div class="tab-nav">
-                    <button class="tab-btn active" data-tab="content">
+                    <button type="button" class="tab-btn active" data-tab="content">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
@@ -55,7 +55,7 @@
                         </svg>
                         Content
                     </button>
-                    <button class="tab-btn" data-tab="style">
+                    <button type="button" class="tab-btn" data-tab="style">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="13.5" cy="6.5" r=".5" />
@@ -67,7 +67,7 @@
                         </svg>
                         Style
                     </button>
-                    <button class="tab-btn" data-tab="signature">
+                    <button type="button" class="tab-btn" data-tab="signature">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
@@ -179,7 +179,7 @@ E: eric.ss@konsttech.ai"></textarea>
 
         <!-- Footer Actions -->
         <footer class="app-footer">
-            <button id="copyBtn" class="btn btn-primary btn-large">
+            <button type="button" id="copyBtn" class="btn btn-primary btn-large">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
@@ -193,7 +193,25 @@ E: eric.ss@konsttech.ai"></textarea>
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
+    <!-- 1. 載入主題定義 -->
+    <script src="themes/dark.js"></script>
+    <script src="themes/light.js"></script>
+    <script src="themes/sunset.js"></script>
+    <script src="themes/newyear.js"></script>
+
+    <!-- 2. 載入配置並初始化主題 -->
+    <script src="js/config.js"></script>
+    <script>
+        // 初始化主題（將 themes/*.js 的主題註冊到 EditorConfig）
+        if (window.EditorConfig && window.EditorConfig.initThemes) {
+            window.EditorConfig.initThemes();
+        }
+    </script>
+
+    <!-- 3. 載入模板生成器（依賴 EditorConfig） -->
     <script src="template.js"></script>
+
+    <!-- 4. 載入主應用 -->
     <script src="app.js"></script>
 </body>
 

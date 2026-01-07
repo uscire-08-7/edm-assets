@@ -1,78 +1,54 @@
 /**
  * Konst EDM Editor - Configuration
- * 
- * Centralized configuration for themes, logos, and social links
+ *
+ * 集中管理配置：從 themes/*.js 載入主題，統一管理社交連結和 Footer
  */
 
 // ===================================
 // Theme Configurations
+// 從 themes/*.js 載入（需先載入各主題文件）
 // ===================================
-const THEMES = {
-    dark: {
-        name: 'Dark',
-        headerBg: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%)',
-        headerTextColor: '#ffffff',
-        bodyBg: '#ffffff',
-        bodyTextColor: '#374151',
-        ctaBg: 'linear-gradient(135deg, #5C5CE0, #8B5CF6)',
-        ctaTextColor: '#ffffff'
-    },
-    light: {
-        name: 'Light',
-        headerBg: '#ffffff',
-        headerTextColor: '#1a1a2e',
-        bodyBg: '#ffffff',
-        bodyTextColor: '#374151',
-        ctaBg: 'linear-gradient(135deg, #5C5CE0, #8B5CF6)',
-        ctaTextColor: '#ffffff'
-    },
-    sunset: {
-        name: 'Sunset',
-        // TODO: 待配色確認
-        headerBg: 'linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)',
-        headerTextColor: '#ffffff',
-        bodyBg: '#fff8f0',
-        bodyTextColor: '#4a3728',
-        ctaBg: 'linear-gradient(135deg, #ff6b35, #f7931e)',
-        ctaTextColor: '#ffffff'
-    },
-    newyear: {
-        name: 'New Year',
-        // TODO: 待配色確認
-        headerBg: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 100%)',
-        headerTextColor: '#ffd700',
-        bodyBg: '#fff5f5',
-        bodyTextColor: '#4a1c1c',
-        ctaBg: 'linear-gradient(135deg, #c41e3a, #8b0000)',
-        ctaTextColor: '#ffd700'
-    }
-};
+const THEMES = {};
 
-// ===================================
-// Logo Configurations
-// ===================================
-const LOGOS = {
-    konst_dark: {
-        name: 'Konst (Dark)',
-        url: '', // TODO: 待提供 URL
-        forTheme: ['dark', 'sunset', 'newyear']
-    },
-    konst_light: {
-        name: 'Konst (Light)',
-        url: 'https://www.konsttech.ai/images/types=logo-white-text.svg',
-        forTheme: ['light']
-    },
-    glows_dark: {
-        name: 'Glows.ai (Dark)',
-        url: '', // TODO: 待提供 URL
-        forTheme: ['dark', 'sunset', 'newyear']
-    },
-    glows_light: {
-        name: 'Glows.ai (Light)',
-        url: '', // TODO: 待提供 URL
-        forTheme: ['light']
+// 註冊主題函數 - 供 themes/*.js 使用
+function registerTheme(theme) {
+    if (theme && theme.id) {
+        THEMES[theme.id] = theme;
     }
-};
+}
+
+// 初始化時載入已定義的主題
+function initThemes() {
+    // 檢查並註冊各主題（themes/*.js 會將主題掛載到 window）
+    if (typeof window.DarkTheme !== 'undefined') {
+        registerTheme(window.DarkTheme);
+    }
+    if (typeof window.LightTheme !== 'undefined') {
+        registerTheme(window.LightTheme);
+    }
+    if (typeof window.SunsetTheme !== 'undefined') {
+        registerTheme(window.SunsetTheme);
+    }
+    if (typeof window.NewYearTheme !== 'undefined') {
+        registerTheme(window.NewYearTheme);
+    }
+}
+
+// 取得主題
+function getTheme(themeId) {
+    return THEMES[themeId] || THEMES['dark'] || Object.values(THEMES)[0];
+}
+
+// 取得所有已啟用的主題（用於 UI 顯示）
+function getEnabledThemes() {
+    // 根據主題的 enabled 屬性判斷是否顯示
+    return Object.values(THEMES).filter(theme => theme.enabled === true);
+}
+
+// 取得所有主題
+function getAllThemes() {
+    return THEMES;
+}
 
 // ===================================
 // Social Links Configuration
@@ -108,10 +84,8 @@ const SOCIAL_LINKS = {
 // Footer Configuration
 // ===================================
 const FOOTER_CONFIG = {
-    visualIcon: {
-        url: 'https://ci3.googleusercontent.com/mail-sig/AIorK4zX4D2omxNIlc7mCUY3YYW7_tp7Jheg2CRyRLXLRdSAPu5-bJKU5ZHnQNMUMQ_iRd1xrU1x0vCdYll8',
-        height: '40px' // 縮小比例
-    },
+    logoLink: 'https://www.konsttech.ai',
+    isoBadgeUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/iso.png',
     confidentialText: 'The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.'
 };
 
@@ -130,14 +104,22 @@ const DEFAULTS = {
     footerInfo: 'Konst Tech Inc., Taiwan',
     psText: 'Have questions? Reply directly to this email and we\'ll help you get started.',
     signature: '- The Konst Team',
-    theme: 'dark',
-    logo: 'konst_light'
+    theme: 'dark'
 };
 
-// Export for use in other modules
+// ===================================
+// Export
+// ===================================
 window.EditorConfig = {
+    // 主題相關
     THEMES,
-    LOGOS,
+    registerTheme,
+    initThemes,
+    getTheme,
+    getEnabledThemes,
+    getAllThemes,
+
+    // 其他配置
     SOCIAL_LINKS,
     FOOTER_CONFIG,
     DEFAULTS
