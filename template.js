@@ -54,17 +54,17 @@ const THEMES = {
     dark: {
         headerBg: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%)',
         headerTextColor: '#ffffff',
-        logoUrl: 'https://i.ibb.co/C5smgHz1/black.png'
+        logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/black.png'
     },
     light: {
         headerBg: '#f8f9fa',
         headerTextColor: '#1a1a2e',
-        logoUrl: 'https://i.ibb.co/7xrWw37w/white.png'
+        logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/white.png'
     }
 };
 
 // ISO Badge URL
-const ISO_BADGE_URL = 'https://i.ibb.co/0p3bwPFF/ios.png';
+const ISO_BADGE_URL = 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/iso.png';
 
 // Footer configuration
 const FOOTER_CONFIG = {
