@@ -69,6 +69,7 @@ function getConfig() {
     return {
         SOCIAL_LINKS: config.SOCIAL_LINKS || {},
         FOOTER_CONFIG: config.FOOTER_CONFIG || {},
+        SLOGAN_TEXTS: config.SLOGAN_TEXTS || { en: '', zh: '' },
         getTheme: (id) => {
             const theme = config.getTheme ? config.getTheme(id) : null;
             return theme || DEFAULT_THEME;
@@ -127,7 +128,8 @@ function generateEmailHTML(data) {
         footerInfo = 'Konst Tech Inc., Taiwan',
         psText = 'Have questions? Reply directly to this email and we\'ll help you get started.',
         signature = '- The Konst Team',
-        theme = 'dark'
+        theme = 'dark',
+        sloganLang = 'en'
     } = data;
 
     // 從 config 取得配置
@@ -135,6 +137,7 @@ function generateEmailHTML(data) {
     const themeStyles = config.getTheme(theme);
     const SOCIAL_LINKS = config.SOCIAL_LINKS;
     const FOOTER_CONFIG = config.FOOTER_CONFIG;
+    const sloganText = config.SLOGAN_TEXTS[sloganLang] || config.SLOGAN_TEXTS.en || '';
 
     // Escape user inputs
     const safeRecipientName = escapeHtml(recipientName);
@@ -240,19 +243,29 @@ function generateEmailHTML(data) {
                     <!-- Footer -->
                     <tr>
                         <td style="padding: 30px;">
-                            <!-- Company Info -->
-                            <p style="font-size: 12px; color: #6b7280; margin: 0 0 16px 0; text-align: center;">
-                                ${safeFooterInfo}
+                            <!-- Company Slogan -->
+                            <p style="font-size: 12px; color: #4b5563; margin: 0 0 16px 0; text-align: center; line-height: 1.5;">
+                                ${escapeHtml(sloganText)}
                             </p>
 
-                            <!-- ISO Badge (Left) -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 16px;">
+                            <!-- Logo (Left) + ISO Badge (Right) -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 12px;">
                                 <tr>
-                                    <td style="text-align: left;">
+                                    <td style="text-align: left; vertical-align: middle;">
+                                        <a href="${FOOTER_CONFIG.logoLink || 'https://www.konsttech.ai'}" target="_blank" style="text-decoration: none;">
+                                            <img src="${FOOTER_CONFIG.blackLogoUrl}" alt="Konst" style="height: 60px; width: auto;">
+                                        </a>
+                                    </td>
+                                    <td style="text-align: right; vertical-align: middle;">
                                         <img src="${FOOTER_CONFIG.isoBadgeUrl}" alt="ISO/IEC 27001:2022 Certified" style="height: 32px; width: auto;">
                                     </td>
                                 </tr>
                             </table>
+
+                            <!-- Company Info -->
+                            <p style="font-size: 12px; color: #6b7280; margin: 0 0 16px 0; text-align: center;">
+                                ${safeFooterInfo}
+                            </p>
 
                             <!-- Social Links (Centered) -->
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 0 auto;">
@@ -327,7 +340,8 @@ function generatePreviewHTML(data) {
         footerInfo = 'Konst Tech Inc., Taiwan',
         psText = 'Have questions? Reply directly to this email and we\'ll help you get started.',
         signature = '- The Konst Team',
-        theme = 'dark'
+        theme = 'dark',
+        sloganLang = 'en'
     } = data;
 
     // 從 config 取得配置
@@ -335,6 +349,7 @@ function generatePreviewHTML(data) {
     const themeStyles = config.getTheme(theme);
     const SOCIAL_LINKS = config.SOCIAL_LINKS;
     const FOOTER_CONFIG = config.FOOTER_CONFIG;
+    const sloganText = config.SLOGAN_TEXTS[sloganLang] || config.SLOGAN_TEXTS.en || '';
 
     // Escape user inputs
     const safeRecipientName = escapeHtml(recipientName);
@@ -399,15 +414,23 @@ function generatePreviewHTML(data) {
 
     <!-- Footer -->
     <div style="padding: 30px;">
+        <!-- Company Slogan -->
+        <p style="font-size: 12px; color: #4b5563; margin: 0 0 16px 0; text-align: center; line-height: 1.5;">
+            ${escapeHtml(sloganText)}
+        </p>
+
+        <!-- Logo (Left) + ISO Badge (Right) -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <a href="${FOOTER_CONFIG.logoLink || 'https://www.konsttech.ai'}" target="_blank" style="text-decoration: none;">
+                <img src="${FOOTER_CONFIG.blackLogoUrl}" alt="Konst" style="height: 60px; width: auto;">
+            </a>
+            <img src="${FOOTER_CONFIG.isoBadgeUrl}" alt="ISO/IEC 27001:2022 Certified" style="height: 32px; width: auto;">
+        </div>
+
         <!-- Company Info -->
         <p style="font-size: 12px; color: #6b7280; margin: 0 0 16px 0; text-align: center;">
             ${safeFooterInfo}
         </p>
-
-        <!-- ISO Badge (Left) -->
-        <div style="margin-bottom: 16px;">
-            <img src="${FOOTER_CONFIG.isoBadgeUrl}" alt="ISO/IEC 27001:2022 Certified" style="height: 32px; width: auto;">
-        </div>
 
         <!-- Social Links (Centered) -->
         <div style="display: flex; justify-content: center; gap: 16px;">

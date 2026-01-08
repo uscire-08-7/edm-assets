@@ -22,6 +22,7 @@
 
         // Form inputs - Style tab
         themeInputs: document.querySelectorAll('input[name="theme"]'),
+        sloganLang: document.getElementById('sloganLang'),
 
         // Form inputs - Signature tab
         signature: document.getElementById('signature'),
@@ -99,7 +100,8 @@
             footerInfo: elements.footerInfo.value || DEFAULTS.footerInfo,
             psText: elements.psText.value || DEFAULTS.psText,
             signature: elements.signature.value || DEFAULTS.signature,
-            theme: selectedTheme
+            theme: selectedTheme,
+            sloganLang: elements.sloganLang.value || DEFAULTS.sloganLang
         };
     }
 
@@ -122,6 +124,9 @@
         elements.themeInputs.forEach(input => {
             input.checked = (input.value === theme);
         });
+
+        // Set slogan language
+        elements.sloganLang.value = data.sloganLang || DEFAULTS.sloganLang;
     }
 
     // ===================================
@@ -159,7 +164,8 @@
             footerInfo: elements.footerInfo.value,
             psText: elements.psText.value,
             signature: elements.signature.value,
-            theme: selectedTheme
+            theme: selectedTheme,
+            sloganLang: elements.sloganLang.value
         };
     }
 
@@ -210,7 +216,8 @@
                 footerInfo: DEFAULTS.footerInfo,
                 psText: DEFAULTS.psText,
                 signature: DEFAULTS.signature,
-                theme: DEFAULTS.theme
+                theme: DEFAULTS.theme,
+                sloganLang: DEFAULTS.sloganLang
             });
             updatePreview();
             showToast('✓ Cleared');
@@ -305,6 +312,9 @@
         elements.themeInputs.forEach(input => {
             input.addEventListener('change', updatePreview);
         });
+
+        // Slogan language change triggers preview update
+        elements.sloganLang.addEventListener('change', updatePreview);
 
         // Button clicks
         elements.saveBtn.addEventListener('click', saveData);

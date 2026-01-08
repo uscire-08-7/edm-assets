@@ -86,7 +86,16 @@ const SOCIAL_LINKS = {
 const FOOTER_CONFIG = {
     logoLink: 'https://www.konsttech.ai',
     isoBadgeUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/iso.png',
+    blackLogoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/blacklogo.png',
     confidentialText: 'The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.'
+};
+
+// ===================================
+// Company Slogan (多語言)
+// ===================================
+const SLOGAN_TEXTS = {
+    en: 'Provide world-leading high-performance computing services to build a diverse AI ecosystem.',
+    zh: '提供引領全球的高性能運算服務，打造多元AI生態系。'
 };
 
 // ===================================
@@ -104,7 +113,8 @@ const DEFAULTS = {
     footerInfo: 'Konst Tech Inc., Taiwan',
     psText: 'Have questions? Reply directly to this email and we\'ll help you get started.',
     signature: '- The Konst Team',
-    theme: 'dark'
+    theme: 'dark',
+    sloganLang: 'en'
 };
 
 // ===================================
@@ -122,5 +132,6 @@ window.EditorConfig = {
     // 其他配置
     SOCIAL_LINKS,
     FOOTER_CONFIG,
+    SLOGAN_TEXTS,
     DEFAULTS
 };
