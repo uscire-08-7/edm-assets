@@ -13,7 +13,7 @@ const NewYearTheme = {
     // Header 樣式
     headerBg: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 100%)',
     headerTextColor: '#ffd700',
-    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/black.png', // TODO: 可能需要專屬 logo
+    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/black.png', // TODO: 可能需要專屬 logo
 
     // Body 樣式
     bodyBg: '#fff5f5',

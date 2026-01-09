@@ -85,9 +85,10 @@ themes/*.js → config.js（initThemes）→ template.js → app.js
 ```
 
 ### GitHub 倉庫
-- **URL**: https://github.com/uscire-08-7/edm-assets
+- **程式碼倉庫**: https://github.com/uscire-08-7/edm-assets （Private）
+- **圖片倉庫**: https://github.com/uscire-08-7/static-res （Public）
 - **分支**: main
-- 圖片資源使用 GitHub raw URL 引用
+- 圖片資源使用 static-res 的 GitHub raw URL 引用
 
 ---
 

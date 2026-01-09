@@ -11,7 +11,7 @@ const DarkTheme = {
     // Header 樣式
     headerBg: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%)',
     headerTextColor: '#ffffff',
-    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/black.png',
+    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/black.png',
 
     // Body 樣式
     bodyBg: '#ffffff',

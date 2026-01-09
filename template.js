@@ -59,7 +59,7 @@ function getConfig() {
         name: 'Dark',
         headerBg: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%)',
         headerTextColor: '#ffffff',
-        logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/black.png',
+        logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/black.png',
         bodyBg: '#ffffff',
         bodyTextColor: '#374151',
         ctaBg: 'linear-gradient(135deg, #5C5CE0, #8B5CF6)',

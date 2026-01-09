@@ -30,7 +30,7 @@
 
 | 資源 | URL |
 |------|-----|
-| blacklogo.png | `https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/blacklogo.png` |
+| blacklogo.png | `https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/blacklogo.png` |
 
 ### Footer 區塊結構（由上至下）
 

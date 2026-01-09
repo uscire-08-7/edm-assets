@@ -13,7 +13,7 @@ const SunsetTheme = {
     // Header 樣式
     headerBg: 'linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)',
     headerTextColor: '#ffffff',
-    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/black.png', // TODO: 可能需要專屬 logo
+    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/black.png', // TODO: 可能需要專屬 logo
 
     // Body 樣式
     bodyBg: '#fff8f0',

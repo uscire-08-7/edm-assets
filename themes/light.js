@@ -11,7 +11,7 @@ const LightTheme = {
     // Header 樣式
     headerBg: '#f8f9fa',
     headerTextColor: '#1a1a2e',
-    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/edm-assets/main/assets/white.png',
+    logoUrl: 'https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/white.png',
 
     // Body 樣式
     bodyBg: '#ffffff',
