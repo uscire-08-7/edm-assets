@@ -1,5 +1,27 @@
 # Konst EDM Editor - 專案進度報告
 
+## 2026-01-09 更新
+
+### 倉庫架構調整（安全性）
+
+將程式碼與圖片分離到不同倉庫：
+
+| 倉庫 | 用途 | 可見性 |
+|------|------|--------|
+| edm-assets | 程式碼 | Private |
+| static-res | 圖片資源 | Public |
+
+### 修改內容
+- 更新所有圖片 URL 從 `edm-assets` 改為 `static-res`
+- 更新 CLAUDE.md 記錄新的倉庫架構
+
+### 圖片 URL 格式
+```
+https://raw.githubusercontent.com/uscire-08-7/static-res/main/assets/{filename}
+```
+
+---
+
 ## 2026-01-08 更新
 
 ### 新增功能

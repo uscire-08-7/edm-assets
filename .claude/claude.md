@@ -142,6 +142,12 @@ themes/*.js → config.js（initThemes）→ template.js → app.js
 
 ## 開發歷史
 
+### 2026-01-09
+- 分離程式碼與圖片倉庫（安全性考量）
+  - edm-assets：程式碼倉庫，改為 Private
+  - static-res：圖片倉庫，保持 Public（供 EDM 引用）
+- 更新所有圖片 URL 指向 static-res
+
 ### 2026-01-08
 - 新增 Footer 區塊重設計（blacklogo + ISO + 公司願景）
 - 新增公司願景多語言選擇器（英文/中文）
@@ -164,4 +170,4 @@ themes/*.js → config.js（initThemes）→ template.js → app.js
 
 ---
 
-*最後更新：2026-01-08*
+*最後更新：2026-01-09*
